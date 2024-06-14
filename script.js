@@ -1,10 +1,19 @@
-const animais = document.getElementById('animais');
+const menu = document.querySelector('.menu');
 
-const gridSection = document.getElementsByClassName('grid-section');
+console.log(menu.classList.add('ativo'))
+console.log(menu.classList)
 
-console.log(gridSection)
+if (menu.classList.contains('ativo')) {
+    menu.classList.add('possui-ativo')
+}
 
-const primeiraUl = document.querySelector('ul');
-const primeiraLi = document.querySelector('li');
-const linksInternos = document.querySelector('href^=#;')
+console.log(menu.className)
+
+const animais = document.querySelector('.animais');
+
+console.log(animais.attributes)
+console.log(animais.attributes.id)
+console.log(animais.attributes.class)
+
+
 
