@@ -68,11 +68,11 @@ if (menu.classList.contains('ativo')) {
 
 console.log(menu.className)
 
-const animais = document.querySelector('.animais');
+const animais2 = document.querySelector('.animais');
 
-console.log(animais.attributes)
-console.log(animais.attributes.id)
-console.log(animais.attributes.class)
+console.log(animais2.attributes)
+console.log(animais2.attributes.id)
+console.log(animais2.attributes.class)
 
 const img = document.querySelector('img');
 
@@ -392,3 +392,88 @@ function apertaT(event) {
 }
 
 window.addEventListener('keydown', apertaT)
+
+// Transversing e Manipulação
+
+/**
+ *  Transversing
+ * 
+ *  Como navegar pelo DOM, utilizando suas propriedades e métodos.
+ */
+
+const lista = document.querySelector('.animais-lista');
+
+console.log(lista.parentElement); // retorna pai do elemento
+console.log(lista.previousElementSibling); //retorna elemento acima
+console.log(lista.nextElementSibling); //retorna elemento abaixo
+console.log(lista.children) // HTMLCollection - acessa como se fosse um array [0]
+console.log(lista.children[--lista.children.length]) // retorna o ultimo filho
+console.log(lista.querySelector('li:last-child')) // selecionar o ultimo filho
+
+/**
+ * Element vs Node
+ * 
+ *  Element's representam um elemento html, ou seja, uma tag. Node
+ *  representa um nó, e pode ser um elemento (Element), texto, comentário
+ *  quebra de linha e mais.
+ */
+
+/**
+ * Manipulando Elementos
+ * 
+ * É possível mover elementos no dom com métodos de Node
+ * 
+ */
+
+const contato = document.querySelector('.contato');
+const titulo = contato.querySelector('.titulo');
+
+// lista.appendChild(titulo) // coloca o elemento selecionado como ultimo filho.
+
+/**
+ *  move a lista para dentro da sessão de contato e 
+coloca ela antes do titulo de contato.
+o segundo parametro tem que ser filho do pai
+geral, no caso (contato).
+*/
+
+// contato.insertBefore(lista, titulo)
+
+// contato.removeChild(titulo) // remove um filho
+
+// contato.replaceChild(lista, titulo) // substitui o segundo parametro pelo primeiro.
+
+/**
+ * Novos Elementos
+ * 
+ * Podemos criar novos elementos com o método createElement()
+ * 
+ */
+
+const animais = document.querySelector('.animais');
+const mapa = document.querySelector('.mapa')
+
+const novoH1 = document.createElement('h1');
+
+novoH1.innerText = 'Novo Título'; // Substitui o título atual pelo título definido aqui.
+
+novoH1.classList.add('titulo'); // Adiciona a classe titulo no novo titulo definido
+
+mapa.appendChild(novoH1); // Adiciona o elemento novoH1 depois do ultimo filho de mapa
+
+/**
+ * Clonar Elementos
+ * 
+ * Todo elemento selecionado é único. Para criarmos um novo elemento
+ * basedo no anterior, é necessário utilizar o método cloneNode();
+ */
+
+const faq = document.querySelector('.faq');
+/**
+ * clona o elemento selecionado e caso coloque true,
+ * clona também todos os filhos do elemento selecionado.
+ * se colocar false copia apenas a tag selecionada
+ */
+const cloneH1 = novoH1.cloneNode(true) 
+
+faq.appendChild(cloneH1)
