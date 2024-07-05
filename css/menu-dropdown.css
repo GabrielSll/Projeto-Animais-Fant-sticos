@@ -2,6 +2,7 @@
     position: relative;
 }
 
+
 [data-dropdown] .dropdown-menu {
     display: none;
 }
@@ -11,7 +12,7 @@
     display: block;
 }
 
-@keyframes shoUp {
+@keyframes showUp {
     from {
         opacity: 0;
         transform: translate3d(0, 30px, 0);
@@ -28,7 +29,10 @@
     top: 38px;
     border: 2px solid #333;
     z-index: 200;
+    animation: showUp .3s forwards;
 }
+
+
 
 .dropdown-menu::before {
     content: '';
